@@ -190,7 +190,7 @@ export const Contact = ({ language }: ContactProps) => {
                 size="lg"
                 variant="outline"
                 className="w-full rounded-full border-2 py-6 transition-smooth hover:bg-accent/20"
-                onClick={() => window.open('https://calendly.com', '_blank')}
+                onClick={() => window.open('https://cal.com/alma-consulting-ia-4rtsib/30min', '_blank')}
               >
                 <Calendar className="mr-2 h-5 w-5" />
                 {t.bookMeetingButton}

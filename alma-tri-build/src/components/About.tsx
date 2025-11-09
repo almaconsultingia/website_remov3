@@ -48,7 +48,7 @@ export const About = ({ language }: AboutProps) => {
           </h2>
           
           <div
-            className="text-lg md:text-xl text-foreground/80 leading-relaxed space-y-5"
+            className="text-lg md:text-xl text-foreground/80 leading-relaxed space-y-5 content-text"
             dangerouslySetInnerHTML={{ __html: t.description }}
           />
         </div>

@@ -59,6 +59,7 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --muted-paragraph: 240 5% 50%;
   }
 
   .dark {
@@ -161,5 +162,21 @@ All colors MUST be HSL.
 
   .nav-link:hover {
     color: hsl(var(--primary));
+  }
+
+  .scroll-to-top:hover { transform: translateY(-3px); }
+  .scroll-to-top:focus { outline: 2px solid hsl(var(--primary-foreground)); outline-offset: 2px; }
+  .scroll-to-top {
+    @apply fixed right-6 bottom-6 w-12 h-12 rounded-full flex items-center justify-center text-white shadow transition-opacity;
+    background: hsl(var(--primary));
+    box-shadow: var(--shadow-soft);
+    z-index: 60;
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+   /* Content container used for injected HTML so <p> tags inherit same color & spacing */
+  .content-text,
+  .content-text p {
+    color: hsl(var(--muted-paragraph));
+    margin: 0;
   }
 }
