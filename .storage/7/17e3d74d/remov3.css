@@ -1,0 +1,190 @@
+/* Tipografía y layout existentes... no tocar reglas desktop */
+
+/* SOLO ajustes para móviles: max-width: 768px */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+    --panel-bg: rgba(10, 12, 16, 0.92);
+    --panel-border: rgba(255, 255, 255, 0.08);
+  }
+
+  .header {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(120%) blur(8px);
+    -webkit-backdrop-filter: saturate(120%) blur(8px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px;
+    height: var(--header-height);
+    padding: 0 12px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .brand-logo {
+    width: 28px;
+    height: 28px;
+  }
+  .brand-text {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Botón hamburguesa visible en móviles */
+  .hamburger-btn {
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: #ffffff;
+    color: #111827; /* texto/icono oscuro para CONTRASTE */
+  }
+  .hamburger-btn:focus-visible {
+    outline: 2px solid #2563eb; /* azul accesible */
+    outline-offset: 2px;
+  }
+  .hamburger-btn .bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 200ms ease, opacity 200ms ease;
+  }
+  .hamburger-btn .bar + .bar {
+    margin-top: 4px;
+  }
+
+  /* Panel de navegación móvil */
+  .primary-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    max-height: calc(100dvh - var(--header-height));
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 200ms ease, transform 200ms ease, visibility 0s linear 200ms;
+    background: var(--panel-bg);
+    border-bottom: 1px solid var(--panel-border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+    -webkit-overflow-scrolling: touch;
+  }
+  .primary-nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    margin: 0;
+    list-style: none;
+    gap: 4px;
+    overflow-y: auto;
+    max-height: calc(100dvh - var(--header-height) - 8px);
+  }
+
+  .menu-item {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .menu-link {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #ffffff; /* fuerte contraste sobre fondo oscuro */
+    text-decoration: none;
+    background: transparent;
+  }
+  .menu-link:hover {
+    background: rgba(255,255,255,0.08);
+  }
+  .menu-link:focus-visible {
+    outline: 2px solid #93c5fd; /* azul claro AA */
+    outline-offset: 2px;
+  }
+
+  /* CTA y selector de idioma dentro del panel en móviles */
+  .menu-cta .btn-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;            /* texto oscuro */
+    background: #fcd34d;       /* amarillo accesible */
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 10px;
+  }
+  .menu-cta .btn-book:hover {
+    filter: brightness(0.98);
+  }
+  .menu-cta .btn-book:focus-visible {
+    outline: 2px solid #f59e0b;
+    outline-offset: 2px;
+  }
+
+  .menu-lang .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;     /* texto claro */
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.24);
+    border-radius: 10px;
+  }
+  .menu-lang .lang-btn:hover {
+    background: rgba(255,255,255,0.08);
+  }
+  .menu-lang .lang-btn:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 2px;
+  }
+
+  /* Evitar que la versión desktop se vea afectada:
+     Ocultamos nav por defecto en móviles y dejamos que el estado lo muestre */
+  .primary-nav:not(.is-open) .menu-list {
+    pointer-events: none;
+  }
+}
+
+/* Accesibilidad prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hamburger-btn .bar,
+  .primary-nav {
+    transition: none !important;
+  }
+}

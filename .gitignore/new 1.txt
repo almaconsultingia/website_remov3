@@ -1,0 +1,8 @@
+# Ignorar VSCode, sistema y cachés
+.vscode/
+node_modules/
+AppData/
+*.log
+.DS_Store
+
+

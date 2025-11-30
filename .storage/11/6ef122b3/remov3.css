@@ -1,0 +1,242 @@
+:root {
+  --color-bg: #f7f9fb;
+  --color-bg-alt: #edf3f5;
+  --color-text: #1f2933;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --radius-lg: 1.5rem;
+  --radius-md: 1rem;
+  --radius-pill: 999px;
+}
+
+html { font-size: 16px; }
+@media (min-width: 1024px) { html { font-size: 17.5px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  color: var(--color-text);
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+.container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* NAVBAR — RE:MOV3 a la izquierda; menú junto a ES/CAT & Reservar a la derecha */
+.navbar {
+  position: sticky; top: 0; z-index: 50;
+  background-color: rgba(247, 249, 251, 0.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.6rem 1.5rem; gap: 0.75rem;
+}
+
+/* Marca a la izquierda */
+.brand { display: flex; flex-direction: column; align-items: flex-start; }
+.brand-logo { font-size: 1rem; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 700; color: #0b0b0b; }
+.brand-tagline { font-size: 0.88rem; color: var(--color-text-muted); letter-spacing: 0.02em; white-space: nowrap; }
+
+/* Grupo derecha: nav + controles */
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+
+/* Menú de navegación pegado hacia la derecha (junto a controles) */
+.nav-links { display: flex; align-items: center; gap: 1rem; font-size: 0.95rem; }
+.nav-links a { text-decoration: none; color: var(--color-text-muted); transition: color 0.2s ease; }
+.nav-links a:hover { color: var(--color-text); }
+
+/* Controles: ES/CAT + Reservar, con separación clara */
+.right-controls { display: flex; align-items: center; gap: 0.9rem; }
+
+.lang-group {
+  display: flex; border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill); overflow: hidden; background-color: #ffffff;
+}
+.lang-btn {
+  padding: 0.45rem 0.9rem; border: none; background: transparent;
+  color: var(--color-text-muted); cursor: pointer; font-weight: 600; font-size: 0.92rem;
+}
+.lang-btn.active { background-color: #000000; color: #ffffff; }
+.lang-btn:not(.active) + .lang-btn:not(.active) { border-left: 1px solid var(--color-border); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.95rem 1.7rem; border-radius: var(--radius-pill);
+  border: 1px solid transparent; text-decoration: none;
+  font-size: 1rem; font-weight: 600; cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.btn-primary { background-color: #000000; color: #ffffff; box-shadow: var(--shadow-soft); border-color: #000000; }
+.btn-primary:hover { background-color: #111111; transform: translateY(-1px); }
+.btn-outline { background-color: #ffffff; border-color: #000000; color: #111111; }
+.btn-outline:hover { box-shadow: var(--shadow-soft); transform: translateY(-1px); }
+
+/* Botón reservar más compacto y proporcionado */
+.header-cta { padding: 0.6rem 1.2rem; font-size: 0.95rem; }
+.nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; }
+
+/* HERO — contenido centrado y equilibrado */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; color: #111827; overflow: hidden;
+}
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+.hero-content {
+  position: relative; z-index: 1;
+  padding: 4.5rem 1.5rem 4rem; max-width: 900px;
+  text-align: center; margin: 0 auto;
+}
+.hero h1 { font-size: clamp(3.2rem, 6.5vw, 5.2rem); margin: 0.75rem 0 0.6rem; letter-spacing: 0.06em; color: #ffffff; }
+.hero-subtitle { font-size: 1.1rem; color: #e5e7eb; margin-bottom: 1.6rem; }
+.hero-text { font-size: 1.05rem; color: #e5e7eb; max-width: 46rem; margin: 0 auto; }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2rem; justify-content: center; }
+
+/* SECCIONES GENERALES */
+.section { padding: 4.8rem 0; }
+.section-alt { background-color: var(--color-bg); }
+.section-header { text-align: center; max-width: 640px; margin: 0 auto 2.7rem; }
+.section h2 { font-size: 2.6rem; margin-bottom: 0.6rem; }
+.section-header p { color: var(--color-text-muted); font-size: 1.05rem; }
+
+/* GRID SOBRE MÍ */
+.section-grid {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: 3rem; align-items: center;
+}
+.section-image img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); object-fit: cover; }
+.section-content p { font-size: 1.05rem; line-height: 1.7; color: var(--color-text-muted); margin-bottom: 0.85rem; }
+.section-lead { font-weight: 600; color: var(--color-text); }
+.pill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; list-style: none; margin-top: 1rem; }
+.pill-list li { padding: 0.35rem 0.9rem; border-radius: var(--radius-pill); background-color: rgba(168, 195, 217, 0.2); font-size: 0.85rem; }
+
+/* CARDS / PROCESS STYLE */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+.card {
+  background-color: #ffffff; border-radius: var(--radius-md);
+  padding: 1.9rem; border: 1px solid var(--color-border);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.04);
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.card--center { text-align: center; }
+
+/* Servicios: igual que proceso */
+.process-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.6rem; }
+@media (max-width: 900px) { .process-grid { grid-template-columns: 1fr; } }
+.process-step {
+  background-color: #ffffff; border: 1px solid var(--color-border);
+  border-radius: var(--radius-md); padding: 1.2rem;
+}
+.process-index {
+  width: 34px; height: 34px; border-radius: 50%;
+  background-color: #111111; color: #ffffff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem;
+}
+.process-title { font-size: 1.12rem; font-weight: 700; color: #111111; margin: 0 0 0.3rem; }
+.process-text { font-size: 1.05rem; color: var(--color-text-muted); }
+
+/* Servicios CTA */
+.services-cta { display: flex; justify-content: center; margin-top: 2.0rem; }
+
+/* TESTIMONIOS */
+.testimonial-quote { font-size: 1.05rem; color: var(--color-text-muted); font-style: italic; }
+.testimonial-name { font-size: 0.95rem; font-weight: 600; }
+.testimonial-stars { font-size: 0.95rem; color: #f5a623; }
+
+/* RESERVA */
+.reserva { display: flex; justify-content: center; }
+.reserva-content { max-width: 560px; text-align: center; }
+.reserva-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin: 1.9rem 0; }
+.reserva-note { font-size: 0.95rem; color: var(--color-text-muted); }
+
+/* CONTACTO */
+.contacto-grid {
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
+  gap: 2.7rem; align-items: flex-start;
+}
+.contact-block { margin-top: 1.5rem; }
+.contact-block h3 { margin: 0 0 0.45rem; font-size: 1.05rem; }
+.contact-block p { margin: 0.2rem 0; font-size: 1.05rem; color: var(--color-text-muted); }
+.contact-block a { color: #111111; text-decoration: none; }
+.contact-block a:hover { text-decoration: underline; }
+
+/* Contact form */
+.contacto-form { width: 100%; }
+.contact-form-card {
+  background-color: #ffffff; border: 1px solid var(--color-border);
+  border-radius: var(--radius-md); padding: 1.2rem; box-shadow: 0 8px 28px rgba(15,23,42,0.04);
+}
+.contact-form h3 { margin: 0 0 0.8rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.form-group label { font-size: 0.95rem; color: #111111; font-weight: 600; }
+.form-group input, .form-group textarea {
+  padding: 0.9rem 1rem; border-radius: 0.75rem; border: 1px solid var(--color-border);
+  font-size: 1rem; color: var(--color-text);
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: #9aa3ac; }
+
+/* FOOTER OSCURO */
+.footer-dark { background-color: #0b0b0b; color: #e5e7eb; padding: 3rem 0 2rem; }
+.footer-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+.footer-brand { font-size: 1rem; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 700; color: #ffffff; }
+.footer-tagline { font-size: 0.95rem; color: #cbd5e1; margin-top: 0.4rem; }
+.footer-heading { font-size: 0.95rem; font-weight: 700; color: #ffffff; margin-bottom: 0.6rem; }
+.footer-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
+.footer-list a { color: #e5e7eb; text-decoration: none; }
+.footer-list a:hover { text-decoration: underline; }
+.footer-bottom { border-top: 1px solid #1f2937; margin-top: 2rem; padding-top: 1rem; text-align: center; }
+.footer-copy { font-size: 0.9rem; color: #cbd5e1; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .section-grid, .contacto-grid { grid-template-columns: 1fr; }
+  .section-image { order: -1; }
+  .hero-content { max-width: 100%; padding-top: 6rem; text-align: center; margin: 0 auto; }
+  .hero-buttons { justify-content: center; }
+}
+@media (max-width: 768px) {
+  /* Mejoras de legibilidad y accesibilidad SOLO en móvil */
+  .right-controls { gap: 0.7rem; }
+  .nav-toggle {
+    display: block;
+    width: 44px; height: 44px;
+    border-radius: 10px;
+  }
+  .nav-links {
+    position: absolute; top: 60px; right: 1rem; left: 1rem;
+    flex-direction: column; background-color: rgba(247, 249, 251, 0.98);
+    padding: 0.6rem; border-radius: 1rem; box-shadow: var(--shadow-soft);
+    display: none; gap: 0.25rem; border: 1px solid var(--color-border);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    font-size: 1rem; line-height: 1.4;
+    color: #111111; /* alto contraste sobre fondo claro */
+    border-radius: 0.75rem;
+  }
+  .nav-links a:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+  /* Mostrar Metodología solo en móvil para no modificar desktop */
+  .nav-links .link-process { display: block; font-weight: 600; }
+}
+@media (min-width: 769px) {
+  /* Ocultar el enlace extra en desktop para mantener la versión original */
+  .nav-links .link-process { display: none; }
+}
+
+/* Accesibilidad reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .nav-links, .nav-toggle { transition: none !important; }
+}

@@ -1,0 +1,53 @@
+{
+  "cal": {
+    "link": "https://cal.com/tu-usuario/tu-cal"
+  },
+  "whatsapp": {
+    "number": "+34664892020",
+    "message": "Hola, me gustaría reservar una cita en RE:MOV3."
+  },
+  "contact": {
+    "phone": "+34 664 89 20 20",
+    "email": "remov3@gmail.com",
+    "address": "Carrer de Ejemplo, 123, 08001 Barcelona",
+    "schedule": "Lunes a viernes de 9:00 a 20:00 (con cita previa)",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb="
+  },
+  "services": [
+    {
+      "id": "readaptacion",
+      "icon": "🏃‍♂️",
+      "name": "Readaptación de lesiones",
+      "description": "Plan individualizado para volver a moverte sin dolor tras una lesión, recuperando fuerza, estabilidad y confianza en cada fase del proceso."
+    },
+    {
+      "id": "fisioterapia",
+      "icon": "🦴",
+      "name": "Sesión de fisioterapia",
+      "description": "Valoración, tratamiento y pautas específicas para aliviar el dolor, mejorar la función y entender qué necesita tu cuerpo para avanzar."
+    },
+    {
+      "id": "entreno-mujeres",
+      "icon": "💪",
+      "name": "Entrenamiento para mujeres",
+      "description": "Entrenamiento de fuerza diseñado para mujeres que quieren ganar músculo, sentirse fuertes y cuidar sus articulaciones sin miedo a lesionarse."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Laura, 34 años",
+      "rating": 5,
+      "quote": "Llegué con dolor de rodilla crónico y miedo a hacer ejercicio. En pocas semanas entendí qué me pasaba y ahora vuelvo a entrenar sin miedo."
+    },
+    {
+      "name": "Jordi, 29 años",
+      "rating": 5,
+      "quote": "El enfoque de Adrià es súper claro: te explica todo, te da herramientas y te acompaña en cada fase. Noto progreso real, no solo alivio puntual."
+    },
+    {
+      "name": "Marta, 41 años",
+      "rating": 5,
+      "quote": "Por primera vez siento que entreno con seguridad. Hemos trabajado fuerza, movilidad y hábitos, y mi lumbar ya no es un problema constante."
+    }
+  ]
+}
