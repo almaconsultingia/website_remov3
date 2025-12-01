@@ -248,7 +248,7 @@ const App: React.FC = () => {
           playsInline
           poster="/images/photo1764264480.jpg"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
           Tu navegador no soporta la reproducción de vídeo.
         </video>
 
