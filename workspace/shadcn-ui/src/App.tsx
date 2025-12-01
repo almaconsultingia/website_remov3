@@ -238,7 +238,7 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      {/* HERO — contenido totalmente centrado */}
+{/* HERO — contenido totalmente centrado */}
       <section className="hero" id="inicio">
         <video
           className="hero-video"
@@ -246,7 +246,7 @@ const App: React.FC = () => {
           muted
           loop
           playsInline
-          poster="/images/photo1764264480.jpg"
+          poster="/images/photo1764264480.png"
         >
           <source src="/videos/hero-video.mp4" type="video/mp4" />
           Tu navegador no soporta la reproducción de vídeo.
